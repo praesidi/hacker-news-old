@@ -27,7 +27,7 @@ function Footer() {
 				</span>
 			</div>
 			<div className={styles['logo-container']}>
-				<Logo logoHeight={20} color='white' gap={2} />
+				<Logo logoHeight={20} color='black' gap={2} />
 			</div>
 		</footer>
 	);

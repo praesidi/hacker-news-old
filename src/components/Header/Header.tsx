@@ -4,7 +4,7 @@ import styles from './Header.module.sass';
 function Header() {
 	return (
 		<header className={styles.container}>
-			<Logo color='white' />
+			<Logo color='black' fontSize={20} />
 		</header>
 	);
 }
