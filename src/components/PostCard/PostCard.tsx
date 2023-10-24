@@ -1,6 +1,6 @@
-import styles from './StoryCard.module.sass';
+import styles from './PostCard.module.sass';
 
-function StoryCard() {
+function PostCard() {
 	return (
 		<div className={styles.container}>
 			<div>69^</div>
@@ -11,4 +11,4 @@ function StoryCard() {
 	);
 }
 
-export default StoryCard;
+export default PostCard;
