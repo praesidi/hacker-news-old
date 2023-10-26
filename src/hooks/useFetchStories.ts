@@ -1,20 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
+import { IStoryData } from '../components/StoryCard/StoryCard';
 
-export interface IPostData {
-	by: string;
-	descendants: number;
-	id: number;
-	kids: number[];
-	score: number;
-	time: number;
-	title: string;
-	type: string;
-	url: string;
-}
-
-export default function useFetchStories(url: string) {
-	const [data, setData] = useState<IPostData[] | null>(null);
+export default function useFetchStories(url: string, refetch: boolean) {
+	const [data, setData] = useState<IStoryData[] | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<AxiosError | null>(null);
 
