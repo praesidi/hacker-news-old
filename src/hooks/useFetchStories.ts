@@ -46,16 +46,14 @@ export default function useFetchStories(url: string, refetch: boolean) {
 						.then((response) => response.data),
 				);
 				const result = await Promise.all(promises);
-				// console.log(result);
 				setData(result);
 				setIsLoading(false);
 			} catch (error) {
 				const err = error as AxiosError;
 				setError(err);
-				// console.log(err.response?.data);
 			}
 		}
 		getData();
-	}, [url]);
+	}, [url, refetch]);
 	return { data, isLoading, error };
 }
