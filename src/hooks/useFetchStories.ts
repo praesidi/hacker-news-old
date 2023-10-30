@@ -7,37 +7,12 @@ export default function useFetchStories(url: string, refetch: boolean) {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<AxiosError | null>(null);
 
-	// useEffect(() => {
-	// 	setIsLoading(true);
-	// 	axios
-	// 		.get(url)
-	// 		.then((response) => {
-	// 			setData(response.data);
-	// 			console.log(response.data);
-	// 		})
-	// 		// .then((response) => {
-	// 		// 	response.map((postID: number) => {
-	// 		// 		axios
-	// 		// 			.get(`https://hacker-news.firebaseio.com/v0/item/${postID}.json?print=pretty`)
-	// 		// 			.then(setData([...data, response]))
-	// 		// 	})
-	// 		// 	setData(response.data);
-	// 		// })
-	// 		.catch((err) => {
-	// 			setError(err);
-	// 		})
-	// 		.finally(() => {
-	// 			setIsLoading(false);
-	// 		});
-	// }, [url]);
-
 	useEffect(() => {
 		setIsLoading(true);
 		async function getData() {
 			try {
 				setIsLoading(true);
 				const response = await axios.get(url);
-				// console.log(response.data);
 				const promises = await response.data.map((id: number) =>
 					axios
 						.get(
