@@ -53,7 +53,13 @@ export default function useFetchStories(url: string, refetch: boolean) {
 				setError(err);
 			}
 		}
+
 		getData();
+
+		const interval = setInterval(getData, 300000);
+
+		return () => clearInterval(interval);
 	}, [url, refetch]);
+
 	return { data, isLoading, error };
 }
