@@ -1,20 +1,29 @@
 .container
   width: 80%
-  height: 60px
+  min-height: 60px
   display: flex
   justify-content: flex-start
   align-items: center
   background: #dadae0
   border-radius: 10px
   color: darkgrey
-  padding: 10px 20px
+  padding: 5px 20px
   box-sizing: border-box
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px
 
   .title
-    margin: 0
-    cursor: pointer
-    color: rgba(92, 92, 92, 0.9)
+    text-decoration: none
+  
+    h4
+      margin: 0
+      cursor: pointer
+      color: rgba(92, 92, 92, 0.9)
+      transition: .25s
+
+      &:hover
+        color: rgba(128, 128, 128, 0.9)
+        margin-left: 3px
+
 
 .title-container
   display: flex
@@ -22,7 +31,6 @@
 
 .link
   display: block
-
   a
     text-decoration: none
     color: #bababa

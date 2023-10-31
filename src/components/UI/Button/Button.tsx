@@ -2,10 +2,11 @@ import styles from './Button.module.sass';
 import { ReactElement } from 'react';
 
 interface IButton {
-	children: string | ReactElement;
+	children: ReactElement | undefined;
 	onClick?: () => void;
 	isRound?: boolean;
 	isSpinning?: boolean;
+	text?: string;
 }
 
 function Button({
@@ -13,6 +14,7 @@ function Button({
 	isRound = false,
 	isSpinning = false,
 	children,
+	text,
 }: IButton) {
 	const isAnimated = isSpinning ? `${styles.spinning}` : '';
 	const CSSClasses = isRound
@@ -31,6 +33,7 @@ function Button({
 			>
 				{children}
 			</svg>
+			{text ? <span className={styles.text}>{text}</span> : ''}
 		</button>
 	);
 }

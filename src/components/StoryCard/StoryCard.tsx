@@ -7,12 +7,14 @@ export interface IStoryData {
 	descendants?: number;
 	id: number;
 	kids?: number[];
-	score?: number;
-	time?: number;
+	score: number;
+	time: number;
 	title: string;
 	type: string;
 	url?: string;
 }
+
+// TODO: line 25: check why id randomly causes errors
 
 function StoryCard({ story, index }: { story: IStoryData; index: number }) {
 	return (
@@ -22,17 +24,12 @@ function StoryCard({ story, index }: { story: IStoryData; index: number }) {
 			</div>
 			<div>
 				<div className={styles['title-container']}>
-					<h4
-						onClick={() => {
-							console.log('link used');
-						}}
-						className={styles.title}
-					>
-						{story.title}
-					</h4>
+					<Link to={`./story/${story.id}`} className={styles.title}>
+						<h4>{story.title}</h4>
+					</Link>
 					<span className={styles.link}>
-						<a href={story.url} target='_blank'>
-							({getShortLink(story.url)})
+						<a href={story?.url} target='_blank'>
+							({story.url ? getShortLink(story.url) : 'link not provided'})
 						</a>
 					</span>
 				</div>
@@ -41,7 +38,7 @@ function StoryCard({ story, index }: { story: IStoryData; index: number }) {
 						? `${story.score} point by `
 						: `${story.score} points by `}
 					<span className={styles.by}>{story.by}</span>{' '}
-					{`${getTime(story.time)} ago`}
+					{story.time ? `${convertTime(story.time)} ago` : ''}
 				</div>
 			</div>
 		</div>
