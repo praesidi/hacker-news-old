@@ -1,18 +1,20 @@
 .button
   width: 40px
   height: 40px
-  border-radius: 50%  
+  border-radius: 10px  
   border: 1px solid lightgrey
   transition: .3s
   cursor: pointer
 
   &:hover
-    scale: 1.05
-    transform: rotate(360deg)
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 5px
-
-  &:active
-    scale: 1
 
   svg
     vertical-align: middle
+
+.round
+  border-radius: 50% 
+
+.spinning
+  &:hover
+    transform: rotate(360deg)
