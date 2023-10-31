@@ -11,7 +11,6 @@ export default function useFetchStories(url: string, refetch: boolean) {
 		setIsLoading(true);
 		async function getData() {
 			try {
-				setIsLoading(true);
 				const response = await axios.get(url);
 				const promises = await response.data.map((id: number) =>
 					axios
