@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios, { AxiosError } from 'axios';
 import { IStoryData } from '../components/StoryCard/StoryCard';
 
-export default function useFetchStories(url: string, refetch: boolean) {
+export default function useFetchAllStories(url: string, refetch: boolean) {
 	const [data, setData] = useState<IStoryData[] | null>(null);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [error, setError] = useState<AxiosError | null>(null);
